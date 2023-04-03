@@ -216,6 +216,7 @@ const WorkLogInput = () => {
         onClick={onClickSubmit}
         isLoading={isLoading}
         mb={4}
+        size="lg"
       >
         근무일지 만들기
       </Button>
