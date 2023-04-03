@@ -34,7 +34,7 @@ const WorkLogFormatter = ({
         .filter((d) => d.date == dayOfWeek[_day] && !didNotWork.includes(day))
         .forEach((d) => ret.push({ day: day, start: d.start, end: d.end }));
     });
-    return ret;
+    return { ret, month };
   };
 
   return getWorkDays(month, works, year);

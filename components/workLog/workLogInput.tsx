@@ -14,6 +14,7 @@ import {
 import { WorkDataType, WorkLogType } from '@/lib/types/workLog';
 import workLogFormatter, { timeFormatter } from '@/utils/workLogFormatter';
 import FormatView from '@/components/formatView';
+import { initialYear } from '@/lib/const/workLog';
 
 const WorkLogInput = () => {
   const _year = useRecoilValue(year);
@@ -26,6 +27,7 @@ const WorkLogInput = () => {
   const [isLoading, setIsLoading] = React.useState<boolean>(false);
   const [view, setView] = React.useState<boolean>(false);
   const [result, setResult] = React.useState<WorkDataType[]>();
+  const [resultMonth, setResultMonth] = React.useState<number>(initialYear);
 
   const dateFormat = {
     mon: '월',
@@ -89,13 +91,14 @@ const WorkLogInput = () => {
   const onClickSubmit = async () => {
     setView(false);
     setIsLoading(true);
-    const data = workLogFormatter({
+    const { ret, month } = workLogFormatter({
       year: _year,
       month: _month,
       works: _workLog,
       didNotWork: _didNotWork,
     });
-    setResult(data);
+    setResultMonth(month);
+    setResult(ret);
     setIsLoading(false);
     setView(true);
   };
@@ -227,7 +230,7 @@ const WorkLogInput = () => {
               결과
             </Text>
           </Box>
-          <FormatView formatData={result!} month={_month} />
+          <FormatView formatData={result!} month={resultMonth} />
         </>
       )}
     </>
