@@ -28,7 +28,7 @@ const WorkLogFormatter = ({
 
   const getWorkDays = (month: number, works: WorkLog[]) => {
     const ret: WorkData[] = [];
-    const days: number[] = Array.apply(null, Array(getNumberOfDays(3))).map(
+    const days: number[] = Array.apply(null, Array(getNumberOfDays(month))).map(
       (value, index) => index + 1,
     );
     days.forEach((day) => {
