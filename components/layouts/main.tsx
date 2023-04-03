@@ -1,6 +1,7 @@
 import React from 'react';
 import { Box, Container } from '@chakra-ui/react';
 import Head from 'next/head';
+import NavBar from '@/components/navBar/navBar';
 
 export interface MainProps {
   children: React.ReactNode;
@@ -13,6 +14,7 @@ const Main = ({ children }: MainProps) => (
       <meta name="description" content="work log generator" />
       <meta name="author" content="Seongjin Park" />
     </Head>
+    <NavBar />
 
     <Container maxW="container.md" pt={14}>
       {children}
