@@ -154,6 +154,7 @@ const WorkLogInput = () => {
               min={0}
               w="80px"
               onChange={(s, n) => setStart(n)}
+              inputMode="decimal"
             >
               <NumberInputField />
             </NumberInput>
@@ -163,6 +164,7 @@ const WorkLogInput = () => {
               min={0}
               w="80px"
               onChange={(s, n) => setEnd(n)}
+              inputMode="decimal"
             >
               <NumberInputField />
             </NumberInput>
